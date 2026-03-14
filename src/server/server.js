@@ -60,8 +60,6 @@ app.get("/projects", (req, res) => {
   res.json(foundProjects);
 });
 
-
-
 const myEmailSender = nodemailer.createTransport({
   service: "gmail",
   auth: {

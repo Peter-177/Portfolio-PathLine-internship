@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
 import { FiSend, FiMail, FiUser, FiMessageSquare } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -27,7 +27,16 @@ const Contact = () => {
     setLoadingState("sending");
 
     try {
-      await axios.post("http://localhost:5000/send-email", userInput);
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: userInput.name,
+          from_email: userInput.email,
+          message: userInput.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
       setLoadingState("success");
       setUserInput({ name: "", email: "", message: "" });
