@@ -5,7 +5,11 @@ import { FiSend, FiMail, FiUser, FiMessageSquare } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Contact = () => {
-  const [userInput, setUserInput] = useState({ name: "", email: "", message: "" });
+  const [userInput, setUserInput] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [loadingState, setLoadingState] = useState("");
   const myRef = useRef(null);
 
@@ -13,7 +17,8 @@ const Contact = () => {
     const gsapContext = gsap.context(() => {
       const myAnimation = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      myAnimation.from(".contact-label", { y: 20, opacity: 0, duration: 0.5 })
+      myAnimation
+        .from(".contact-label", { y: 20, opacity: 0, duration: 0.5 })
         .from(".contact-title", { y: 30, opacity: 0, duration: 0.6 }, "-=0.3")
         .from(".contact-social", { y: 20, opacity: 0, duration: 0.5 }, "-=0.2")
         .from(".contact-form", { y: 40, opacity: 0, duration: 0.7 }, "-=0.4");
@@ -27,22 +32,26 @@ const Contact = () => {
     setLoadingState("sending");
 
     try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         {
           from_name: userInput.name,
           from_email: userInput.email,
           message: userInput.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        publicKey,
       );
 
       setLoadingState("success");
       setUserInput({ name: "", email: "", message: "" });
     } catch (error) {
       setLoadingState("error");
-      console.log(error);
+      console.error("EmailJS Error:", error?.text || error?.message || error);
     }
   };
 
@@ -50,11 +59,16 @@ const Contact = () => {
     <>
       <div>
         <title>Contact | Peter Boshra</title>
-        <meta name="description" content="Get in touch with Peter Boshra for collaborations or job opportunities in frontend development." />
+        <meta
+          name="description"
+          content="Get in touch with Peter Boshra for collaborations or job opportunities in frontend development."
+        />
       </div>
-      <section ref={myRef} className="min-h-170 flex items-center px-6 md:px-16 py-16">
+      <section
+        ref={myRef}
+        className="min-h-170 flex items-center px-6 md:px-16 py-16"
+      >
         <div className="w-full flex flex-col lg:flex-row gap-16 items-start">
-
           <div className="flex-1">
             <h2 className="contact-label text-sm font-mono text-primary uppercase tracking-widest mb-3">
               Get In Touch
@@ -62,7 +76,6 @@ const Contact = () => {
             <h1 className="contact-title text-5xl font-bold text-base-content mb-4">
               Contact Me
             </h1>
-            
 
             <div className="contact-social">
               <p className="text-xs text-base-content/40 font-medium uppercase tracking-wider mb-3">
@@ -93,7 +106,6 @@ const Contact = () => {
             </div>
           </div>
 
-
           <div className="contact-form flex-1 w-full">
             <div className="bg-base-200 border border-base-content/8 rounded-2xl p-8">
               <h3 className="text-lg font-semibold text-base-content mb-6">
@@ -101,13 +113,18 @@ const Contact = () => {
               </h3>
 
               <form onSubmit={sendEmail} className="flex flex-col gap-5">
-  
                 <div>
-                  <label htmlFor="name" className="text-xs text-base-content/40 font-medium mb-1.5 block">
+                  <label
+                    htmlFor="name"
+                    className="text-xs text-base-content/40 font-medium mb-1.5 block"
+                  >
                     Name
                   </label>
                   <div className="relative">
-                    <FiUser className="absolute left-3.5 top-1/2 -translate-y-1/2 text-base-content/30" aria-hidden="true" />
+                    <FiUser
+                      className="absolute left-3.5 top-1/2 -translate-y-1/2 text-base-content/30"
+                      aria-hidden="true"
+                    />
                     <input
                       id="name"
                       type="text"
@@ -117,18 +134,23 @@ const Contact = () => {
                       onChange={(e) =>
                         setUserInput({ ...userInput, name: e.target.value })
                       }
-                      requireda
+                      required
                     />
                   </div>
                 </div>
 
-  
                 <div>
-                  <label htmlFor="email" className="text-xs text-base-content/40 font-medium mb-1.5 block">
+                  <label
+                    htmlFor="email"
+                    className="text-xs text-base-content/40 font-medium mb-1.5 block"
+                  >
                     Email
                   </label>
                   <div className="relative">
-                    <FiMail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-base-content/30" aria-hidden="true" />
+                    <FiMail
+                      className="absolute left-3.5 top-1/2 -translate-y-1/2 text-base-content/30"
+                      aria-hidden="true"
+                    />
                     <input
                       id="email"
                       type="email"
@@ -143,13 +165,18 @@ const Contact = () => {
                   </div>
                 </div>
 
-  
                 <div>
-                  <label htmlFor="message" className="text-xs text-base-content/40 font-medium mb-1.5 block">
+                  <label
+                    htmlFor="message"
+                    className="text-xs text-base-content/40 font-medium mb-1.5 block"
+                  >
                     Message
                   </label>
                   <div className="relative">
-                    <FiMessageSquare className="absolute left-3.5 top-3.5 text-base-content/30" aria-hidden="true" />
+                    <FiMessageSquare
+                      className="absolute left-3.5 top-3.5 text-base-content/30"
+                      aria-hidden="true"
+                    />
                     <textarea
                       id="message"
                       placeholder="Your message"
@@ -163,7 +190,6 @@ const Contact = () => {
                   </div>
                 </div>
 
-  
                 <button
                   type="submit"
                   className="btn btn-primary gap-2 mt-1"
@@ -182,7 +208,6 @@ const Contact = () => {
                   )}
                 </button>
 
-  
                 {loadingState === "success" && (
                   <div className="flex items-center gap-2 text-sm text-success bg-success/10 border border-success/20 rounded-xl px-4 py-3">
                     <span>✓</span> Message sent successfully! I'll get back to
