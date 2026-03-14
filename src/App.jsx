@@ -11,8 +11,6 @@ const Projects = lazy(() => import("./pages/Projects"));
 
 const queryClient = new QueryClient();
 
-const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
-
 const router = createHashRouter([
   {
     path: "/",
@@ -40,7 +38,7 @@ const router = createHashRouter([
       },
     ],
   },
-], { basename });
+]);
 
 const App = () => {
   return (

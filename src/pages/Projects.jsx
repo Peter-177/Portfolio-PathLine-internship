@@ -18,21 +18,21 @@ const Projects = () => {
       title: "MemoryGame",
       category: "Games",
       url: "https://peter-177.github.io/Memory-Game/",
-      img: `${import.meta.env.BASE_URL}images/Memory.png`.replace(/\/+/g, '/'),
+      img: "images/Memory.png",
     },
     {
       id: 2,
       title: "Todo-list",
       category: "Web",
       url: "https://peter-177.github.io/To-do-List/",
-      img: `${import.meta.env.BASE_URL}images/Todo.png`.replace(/\/+/g, '/'),
+      img: "images/Todo.png",
     },
     {
       id: 3,
       title: "FAQs",
       category: "Web",
       url: "https://peter-177.github.io/FAQs-frontend-mentor/",
-      img: `${import.meta.env.BASE_URL}images/FAQs.png`.replace(/\/+/g, '/'),
+      img: "images/FAQs.png",
     },
   ];
 
