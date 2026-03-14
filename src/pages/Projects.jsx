@@ -8,48 +8,48 @@ const colorList = {
 
 const tabList = ["All", "Games", "Web"];
 
-const allProjects = [
-  {
-    id: 1,
-    title: "MemoryGame",
-    category: "Games",
-    url: "https://peter-177.github.io/Memory-Game/",
-    img: `${import.meta.env.BASE_URL}images/Memory.png`,
-  },
-  {
-    id: 2,
-    title: "Todo-list",
-    category: "Web",
-    url: "https://peter-177.github.io/To-do-List/",
-    img: `${import.meta.env.BASE_URL}images/Todo.png`,
-  },
-  {
-    id: 3,
-    title: "FAQs",
-    category: "Web",
-    url: "https://peter-177.github.io/FAQs-frontend-mentor/",
-    img: `${import.meta.env.BASE_URL}images/FAQs.png`,
-  },
-];
-
 const Projects = () => {
   const [currentTab, setCurrentTab] = useState("All");
   const myRef = useRef(null);
+
+  const allProjects = [
+    {
+      id: 1,
+      title: "MemoryGame",
+      category: "Games",
+      url: "https://peter-177.github.io/Memory-Game/",
+      img: `${import.meta.env.BASE_URL}images/Memory.png`.replace(/\/+/g, '/'),
+    },
+    {
+      id: 2,
+      title: "Todo-list",
+      category: "Web",
+      url: "https://peter-177.github.io/To-do-List/",
+      img: `${import.meta.env.BASE_URL}images/Todo.png`.replace(/\/+/g, '/'),
+    },
+    {
+      id: 3,
+      title: "FAQs",
+      category: "Web",
+      url: "https://peter-177.github.io/FAQs-frontend-mentor/",
+      img: `${import.meta.env.BASE_URL}images/FAQs.png`.replace(/\/+/g, '/'),
+    },
+  ];
 
   const myProjects = currentTab === "All"
     ? allProjects
     : allProjects.filter((p) => p.category === currentTab);
 
-useEffect(() => {
-  const gsapContext = gsap.context(() => {
-    gsap.fromTo(
-      ".projects-filter",
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" }
-    );
-  }, myRef);
-  return () => gsapContext.revert();
-}, []);
+  useEffect(() => {
+    const gsapContext = gsap.context(() => {
+      gsap.fromTo(
+        ".projects-filter",
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" }
+      );
+    }, myRef);
+    return () => gsapContext.revert();
+  }, []);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const About = lazy(() => import("./pages/About"));
@@ -11,9 +11,9 @@ const Projects = lazy(() => import("./pages/Projects"));
 
 const queryClient = new QueryClient();
 
-const basename = import.meta.env.BASE_URL;
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <HomeLayout />,

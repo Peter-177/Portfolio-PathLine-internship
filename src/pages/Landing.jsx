@@ -45,13 +45,15 @@ const Landing = () => {
       <section ref={myRef} className="h-170 flex items-center px-8">
         <div className="max-auto w-500 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="flex-1">
-            <h1 className="landing-title text-6xl md:text-7xl font-black leading-tight mb-4">
-              Hi, I'm Peter
+            <h1 className="landing-title max-w-2xl text-6xl font-bold tracking-tight sm:text-7xl mb-6">
+              Hi, I'm{" "}
+              <span className="inline-block bg-primary text-primary-content px-5 py-2 rounded-3xl ml-1 leading-none shadow-lg shadow-primary/30">
+                Peter
+              </span>
             </h1>
 
-            <h2 className="landing-subtitle text-2xl font-bold  mb-4 flex items-center gap-1">
-              Frontend developer
-              <span className="ml-1.5 border border-b-22" />
+            <h2 className="landing-subtitle text-2xl font-semibold mb-6 text-base-content/80">
+              Frontend Developer
             </h2>
 
             <p className="landing-desc text-gray-500 text-base leading-relaxed mb-8 max-w-md">
