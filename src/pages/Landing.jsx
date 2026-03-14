@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useRef, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+
 import gsap from "gsap";
 import webImage from "../assets/undraw_website_27ju.svg";
 
@@ -56,7 +56,7 @@ const Landing = () => {
 
             <p className="landing-desc text-gray-500 text-base leading-relaxed mb-8 max-w-md">
               I'm 20 years old and I've been learning web development for a
-              while, I'am using Tailwind and React to create simple projects that people can use.
+              while. I'm using Tailwind and React to create simple projects that people can use.
             </p>
             <NavLink
               to={"/contact"}

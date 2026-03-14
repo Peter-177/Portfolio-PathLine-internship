@@ -12,8 +12,7 @@ const About = () => {
 
       myAnimation
         .from(".about-img", { x: -50, opacity: 0, duration: 0.8 })
-        .from(".about-label", { y: 20, opacity: 0, duration: 0.5 }, "-=0.4")
-        .from(".about-title", { y: 30, opacity: 0, duration: 0.6 }, "-=0.3")
+        .from(".about-title", { y: 30, opacity: 0, duration: 0.6 }, "-=0.4")
         .from(
           ".about-text",
           { y: 25, opacity: 0, duration: 0.5, stagger: 0.15 },
@@ -57,7 +56,7 @@ const About = () => {
             <p className="about-text text-base-content/60 text-base leading-relaxed mb-8 max-w-md">
               I've already made some small projects like a Todo-list and an FAQ
               page to practice my skills. I try to keep my designs clean and
-              easy to use. Even though I'm still learning,
+              easy to use. Even though I'm still learning.
             </p>
 
             <NavLink to="/projects" className="about-btn btn btn-primary">

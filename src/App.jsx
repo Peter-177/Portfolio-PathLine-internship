@@ -11,6 +11,8 @@ const Projects = lazy(() => import("./pages/Projects"));
 
 const queryClient = new QueryClient();
 
+const basename = import.meta.env.BASE_URL;
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,7 +40,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+], { basename });
 
 const App = () => {
   return (
