@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
-import img from "../assets/undraw_fixing-bugs_1ytu.svg";
+import img from "../assets/undraw_profile_d7qw.svg";
 
 const About = () => {
   const myRef = useRef(null);
