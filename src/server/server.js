@@ -6,7 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import process from "node:process";
 
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, "../../.env.local") });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -83,7 +83,8 @@ app.post("/send-email", async (req, res) => {
     }
 
     await myEmailSender.sendMail({
-      from: email,
+      from: `"${name}" <${process.env.EMAIL_USER}>`,
+      replyTo: email,
       to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       subject: `New message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
