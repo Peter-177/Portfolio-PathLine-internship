@@ -69,11 +69,11 @@ const Contact = () => {
         ref={myRef}
         className="min-h-screen pt-40 pb-20 px-8 relative overflow-hidden"
       >
-        {/* Background Accent */}
+       
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-cta/10 rounded-full blur-[140px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-24 items-start">
-          {/* Info Side */}
+        
           <div className="flex-1">
             <h2 className="text-sm font-black text-cta uppercase tracking-[0.3em] mb-4">Communication</h2>
             <h1 className="text-7xl md:text-9xl font-black text-text tracking-tighter leading-none mb-8">
@@ -119,7 +119,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Form Side */}
           <div className="flex-1 w-full">
             <div className="glass-card !p-12 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-cta/5 blur-2xl group-hover:w-48 group-hover:h-48 transition-all duration-700"></div>
@@ -130,7 +129,7 @@ const Contact = () => {
 
               <form onSubmit={sendEmail} className="flex flex-col gap-8">
                 <div className="space-y-6">
-                  {/* Name Input */}
+             
                   <div className="relative group/input">
                     <label
                       htmlFor="name"
@@ -146,7 +145,7 @@ const Contact = () => {
                       <input
                         id="name"
                         type="text"
-                        placeholder="e.g. John Doe"
+                        placeholder="Your name"
                         className="w-full bg-background/50 border border-white/5 h-14 pl-12 pr-4 rounded-xl outline-none focus:border-cta/50 focus:ring-4 focus:ring-cta/5 transition-all font-medium text-text placeholder:text-text-dim/20"
                         value={userInput.name}
                         onChange={(e) =>
@@ -157,7 +156,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Email Input */}
                   <div className="relative group/input">
                     <label
                       htmlFor="email"
@@ -173,7 +171,7 @@ const Contact = () => {
                       <input
                         id="email"
                         type="email"
-                        placeholder="john@example.com"
+                        placeholder="email@gmail.com"
                         className="w-full bg-background/50 border border-white/5 h-14 pl-12 pr-4 rounded-xl outline-none focus:border-cta/50 focus:ring-4 focus:ring-cta/5 transition-all font-medium text-text placeholder:text-text-dim/20"
                         value={userInput.email}
                         onChange={(e) =>
@@ -184,7 +182,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Message Input */}
+                  
                   <div className="relative group/input">
                     <label
                       htmlFor="message"
@@ -199,7 +197,7 @@ const Contact = () => {
                       />
                       <textarea
                         id="message"
-                        placeholder="Tell me about your project..."
+                        placeholder="Youremail@gmail.com"
                         className="w-full bg-background/50 border border-white/5 min-h-[160px] p-5 pl-12 rounded-xl outline-none focus:border-cta/50 focus:ring-4 focus:ring-cta/5 transition-all font-medium text-text placeholder:text-text-dim/20 resize-none"
                         value={userInput.message}
                         onChange={(e) =>
@@ -229,7 +227,7 @@ const Contact = () => {
                   )}
                 </button>
 
-                {/* Status Messages */}
+              
                 {loadingState === "success" && (
                   <div className="flex items-center gap-3 text-sm text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-2xl px-6 py-4 animate-fadeIn">
                     <div className="w-8 h-8 rounded-full bg-emerald-400/20 flex items-center justify-center shrink-0">✓</div>

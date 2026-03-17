@@ -35,7 +35,7 @@ const About = () => {
       </div>
 
       <section ref={myRef} className="relative min-h-[80vh] flex items-center py-20 px-8 overflow-hidden">
-        {/* Decorative Element */}
+        
         <div className="absolute top-0 right-0 w-64 h-64 bg-cta/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
         <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
