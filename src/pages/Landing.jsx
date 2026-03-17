@@ -42,33 +42,55 @@ const Landing = () => {
           {JSON.stringify(SeoData)}
         </script>
       </div>
-      <section ref={myRef} className="h-170 flex items-center px-8">
-        <div className="max-auto w-500 flex flex-col md:flex-row items-center justify-between gap-12">
-          <div className="flex-1">
-            <h1 className="landing-title max-w-2xl text-6xl font-bold tracking-tight sm:text-7xl mb-6">
-              Hi, I'm{" "}
-              <span className="inline-block bg-primary text-primary-content px-5 py-2 rounded-3xl ml-1 leading-none shadow-lg shadow-primary/30">
-                Peter
-              </span>
+
+      <section ref={myRef} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 px-8">
+        {/* Background Blobs */}
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-cta/20 rounded-full blur-[120px] animate-blob pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] animate-blob [animation-delay:2s] pointer-events-none"></div>
+
+        <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-4 flex-wrap">
+          <div className="flex-1 text-center md:text-left">
+            <h1 className="landing-title text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-8 text-text">
+              CREATIVE<br />
+              <span className="text-cta">DEVELOPER</span>
             </h1>
 
-            <h2 className="landing-subtitle text-2xl font-semibold mb-6 text-base-content/80">
-              Frontend Developer
-            </h2>
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-10">
+              <h2 className="landing-subtitle text-xl md:text-2xl font-black text-text-dim border-l-4 border-cta pl-4 leading-tight">
+                Hi, I'm Peter.<br />
+                <span className="text-text">Frontend Expert.</span>
+              </h2>
+              
+              <p className="landing-desc text-text-dim/80 text-lg leading-relaxed max-w-sm">
+                Crafting high-performance digital experiences with a focus on premium aesthetics and user-centric design.
+              </p>
+            </div>
 
-            <p className="landing-desc text-gray-500 text-base leading-relaxed mb-8 max-w-md">
-              I'm 20 years old and I've been learning web development for a
-              while. I'm using Tailwind and React to create simple projects that people can use.
-            </p>
-            <NavLink
-              to={"/contact"}
-              className="landing-btn capitalize btn btn-primary hover:bg-primary-700 hover:text-white text-sm font-medium px-6 py-3 rounded-lg"
-            >
-              contact me
-            </NavLink>
+            <div className="landing-btn flex flex-wrap justify-center md:justify-start gap-4">
+              <NavLink
+                to="/projects"
+                className="btn-premium-primary"
+              >
+                Explore Projects
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className="btn-premium-secondary"
+              >
+                Get in Touch
+              </NavLink>
+            </div>
           </div>
-          <div className="flex-1 flex justify-end">
-            <img src={webImage} alt="Web development illustration" className="landing-img w-100" />
+
+          <div className="flex-1 flex justify-center md:justify-end">
+            <div className="landing-img relative group">
+              <div className="absolute inset-0 bg-cta/10 blur-3xl rounded-full scale-110 group-hover:scale-125 transition-transform duration-700"></div>
+              <img 
+                src={webImage} 
+                alt="Web development illustration" 
+                className="relative z-10 w-full max-w-md drop-shadow-2xl brightness-90 contrast-125 hover:brightness-100 transition-all duration-500" 
+              />
+            </div>
           </div>
         </div>
       </section>

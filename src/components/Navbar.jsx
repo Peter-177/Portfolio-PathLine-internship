@@ -1,43 +1,38 @@
-import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
 import NavLinks from "./NavLinks";
-import { useDispatch } from "react-redux";
-import { toggleTheme } from "../features/userSlice";
 
 const Navbar = () => {
-  const dispatch = useDispatch();
-
-  const handleTheme = () => {
-    dispatch(toggleTheme());
-  };
-  
   return (
-    <nav className="bg-base-200 ">
-      <div className="navbar mx-auto max-w-6xl px-8">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} role="button" aria-label="Open Menu" className="btn btn-ghost lg:hidden">
-              <FaBarsStaggered className="h-6 w-6" />
+    <nav className="fixed top-6 left-0 right-0 z-50 px-6 transform-gpu">
+      <div className="glass-card mx-auto max-w-7xl px-8 h-20 flex items-center justify-between border-white/10">
+        {/* Brand/Logo */}
+        <div className="flex-1">
+          <a href="/" className="text-2xl font-black tracking-tighter text-text group hover:opacity-80 transition-opacity">
+            PB<span className="text-cta">.</span>
+          </a>
+        </div>
+
+        {/* Center Links (Desktop) */}
+        <div className="hidden lg:flex items-center">
+          <ul className="flex items-center gap-8 font-medium">
+            <NavLinks />
+          </ul>
+        </div>
+
+        {/* End Actions */}
+        <div className="flex-1 flex justify-end items-center gap-4">
+          {/* Mobile Menu Toggle */}
+          <div className="dropdown dropdown-end lg:hidden">
+            <label tabIndex={0} role="button" aria-label="Open Menu" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <FaBarsStaggered className="h-5 w-5 text-text" />
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-200"
+              className="menu menu-sm dropdown-content mt-4 z-[100] p-4 shadow-premium glass-card w-56 gap-2"
             >
               <NavLinks />
             </ul>
           </div>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal">
-            <NavLinks />
-          </ul>
-        </div>
-        <div className="navbar-end">
-          <label className="swap swap-rotate" aria-label="Toggle Theme">
-            <input type="checkbox" onChange={handleTheme} />
-            <BsSunFill className="swap-on h-4 w-4" />
-            <BsMoonFill className="swap-off h-4 w-4" />
-          </label>
         </div>
       </div>
     </nav>

@@ -9,7 +9,6 @@ import {
   FaDocker,
 } from "react-icons/fa";
 import { SiTailwindcss, SiExpress } from "react-icons/si";
-import { Helmet } from "react-helmet-async";
 
 const frontend = [
   { name: "HTML", icon: FaHtml5, color: "#E44D26" },
@@ -42,35 +41,33 @@ const Card = ({ skill, index }) => {
   return (
     <div
       role="listitem"
-      className="group relative bg-base-200 border border-base-content/8 rounded-2xl p-4 
-                 hover:border-base-content/20 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/5 
-                 transition-all duration-300 ease-out"
+      className="group relative bg-surface border border-white/5 rounded-3xl p-6 
+                 hover:border-cta/20 hover:-translate-y-2 hover:shadow-premium
+                 transition-all duration-500 ease-out flex flex-col items-center gap-4 overflow-hidden"
       style={{ animationDelay: `${index * 80}ms` }}
     >
-
+      {/* Background Glow */}
       <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
         style={{
-          background: `radial-gradient(circle at 50% 0%, ${skill.color}10, transparent 70%)`,
+          background: `radial-gradient(circle at 50% 50%, ${skill.color}15, transparent 80%)`,
         }}
       />
 
-
-      <div className="relative flex items-center justify-center mb-4">
-        <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center 
-                      group-hover:scale-110 transition-transform duration-300"
-          style={{ backgroundColor: `${skill.color}15` }}
-        >
-          <Icon
-            className="text-2xl transition-all duration-300 group-hover:drop-shadow-lg"
-            style={{ color: skill.color }}
-          />
-        </div>
+      {/* Icon Wrapper */}
+      <div
+        className="relative w-16 h-16 rounded-2xl flex items-center justify-center 
+                    group-hover:scale-110 transition-transform duration-500 overflow-hidden"
+        style={{ backgroundColor: `${skill.color}08` }}
+      >
+        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <Icon
+          className="relative z-10 text-3xl transition-all duration-500 group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]"
+          style={{ color: skill.color }}
+        />
       </div>
 
-
-      <h3 className="relative text-center text-sm font-semibold text-base-content">
+      <h3 className="relative text-center text-xs font-black uppercase tracking-[0.2em] text-text-dim group-hover:text-text transition-colors">
         {skill.name}
       </h3>
     </div>
@@ -84,27 +81,32 @@ const Skills = () => {
         <title>Skills | Peter Boshra</title>
         <meta name="description" content="Technical skills and technologies I use to build modern web applications, including React, Node.js, and Docker." />
       </div>
-      <section className="min-h-170 flex items-center px-6 md:px-16 py-16">
-        <div className="w-full">
 
-          <div className="mb-14">
-            <h2 className="skills-label text-sm font-mono text-primary uppercase tracking-widest mb-3">
-              What I Work With
-            </h2>
-            <h1 id="skills-heading" className="skills-title text-5xl font-bold text-base-content mb-4">
-              My Skills
+      <section className="min-h-screen pt-40 pb-20 px-8 relative overflow-hidden">
+        {/* Background Accents */}
+        <div className="absolute top-1/2 left-0 w-80 h-80 bg-cta/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto w-full">
+          {/* Header */}
+          <div className="mb-20">
+            <h2 className="text-sm font-black text-cta uppercase tracking-[0.3em] mb-4">Expertise</h2>
+            <h1 className="text-7xl md:text-9xl font-black text-text tracking-tighter leading-none mb-4">
+              SKILLS<span className="text-text-dim/20">.</span>
             </h1>
+            <p className="text-text-dim text-lg max-w-lg font-medium">Equipped with a modern tech stack to build lightning-fast, premium digital solutions.</p>
           </div>
 
-
-          <div className="flex flex-col gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {topics.map((topic) => (
-              <div key={topic.title}>
-                <h2 className="text-xl font-semibold text-base-content mb-5 flex items-center gap-3">
-                  {topic.title}
-                  <span className="flex-1 h-px bg-base-content/10" />
-                </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3" role="list">
+              <div key={topic.title} className="flex flex-col gap-8">
+                <div className="flex items-center gap-4">
+                   <h2 className="text-2xl font-black text-text uppercase tracking-widest leading-none">
+                    {topic.title}
+                  </h2>
+                  <div className="flex-1 h-px bg-white/10" />
+                </div>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4" role="list">
                   {topic.skills.map((skill, index) => (
                     <Card key={skill.name} skill={skill} index={index} />
                   ))}

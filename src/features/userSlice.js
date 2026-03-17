@@ -1,33 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const themes = {
-  light: "light",
-  dark: "dark",
-};
-
-const getTheme = () => {
-  const theme = localStorage.getItem("theme") || themes.dark;
-  document.documentElement.setAttribute("data-theme", theme);
-  return theme;
-};
-
-const State = {
-  theme: getTheme(),
+const initialState = {
+  // Theme removed as per request to have a single consistent theme
 };
 
 const userSlice = createSlice({
   name: "user",
-  initialState: State,
+  initialState,
   reducers: {
-    toggleTheme: (state) => {
-      const { light, dark } = themes;
-      state.theme = state.theme === dark ? light : dark;
-      document.documentElement.setAttribute("data-theme", state.theme);
-      localStorage.setItem("theme", state.theme);
-    },
+    // Reducers can be added here if needed for user profile, etc.
   },
 });
-
-export const { toggleTheme } = userSlice.actions;
 
 export default userSlice.reducer;
