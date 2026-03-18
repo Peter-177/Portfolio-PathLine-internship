@@ -1,8 +1,2 @@
-import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./features/userSlice";
-
-export const store = configureStore({
-  reducer: {
-    userState: userReducer,
-  },
-});
+// Empty store file to resolve import errors during Redux removal.
+export const store = {};

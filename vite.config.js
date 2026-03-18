@@ -6,7 +6,7 @@ import compression from "vite-plugin-compression";
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), compression()],
-  // base:'/Portfolio-PathLine-internship/',
+  base: './',
   build: {
     rollupOptions: {
       output: {
