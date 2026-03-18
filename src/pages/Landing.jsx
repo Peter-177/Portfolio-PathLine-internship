@@ -58,11 +58,11 @@ const Landing = () => {
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-10">
               <h2 className="landing-subtitle text-xl md:text-2xl font-black text-text-dim border-l-4 border-cta pl-4 leading-tight">
                 Hi, I'm Peter.<br />
-                <span className="text-text">Frontend Expert.</span>
+                <span className="text-text">Frontend Developer.</span>
               </h2>
               
               <p className="landing-desc text-text-dim/80 text-lg leading-relaxed max-w-sm">
-                Crafting high-performance digital experiences with a focus on premium aesthetics and user-centric design.
+               Now I'm focused on learning Frontend, and in the future I plan to learn Backend to make my sites even better.
               </p>
             </div>
 

@@ -48,9 +48,8 @@ const About = () => {
 
             <div className="space-y-6 max-w-xl">
               <p className="about-text text-lg text-text font-medium leading-relaxed">
-                I'm a 20-year-old creator dedicated to building digital experiences that marry 
-                <span className="text-cta font-black"> technical precision</span> with 
-                <span className="text-cta font-black"> artistic soul.</span>
+              I'm a 20-year-old developer passionate about building digital experiences that combine  <span className="text-cta font-black"> technical precision</span> with  a creative touch. I've been learning web development for a while, using 
+                <span className="text-cta font-black"> Tailwind and React </span> to create clean, user-friendly projects.
               </p>
 
               <p className="about-text text-text-dim text-base leading-relaxed">
